@@ -73,6 +73,16 @@ jobs:
           node --check scripts/validate-contributors.mjs
           echo "JavaScript parses cleanly."
 
+      - name: Check AI collaboration shell scripts
+        run: |
+          for file in scripts/*.sh; do
+            bash -n "$file"
+            "$file" --help >/dev/null
+            echo "  ok  $file"
+          done
+          ./scripts/context.sh tree >/dev/null
+          echo "AI collaboration shell scripts passed syntax and smoke checks."
+
       - name: Check the issue and pull request templates are valid YAML
         run: |
           for file in .github/ISSUE_TEMPLATE/*.yml .github/workflows/*.yml; do
