@@ -560,14 +560,22 @@ that have not happened.
 Legend: `☐` not started · `⏳` done, waiting for the badge to appear · `✅`
 verified on the profile · `—` not applicable
 
-**Every box below is `☐`. Nothing has been earned yet — the repository has not
-even been published.**
+**Status as of 2026-08-10.** The repository is published and live at
+<https://isaiahchonchoramirez.github.io/achievement-playground/>. One achievement
+has been verified on a profile so far: Pull Shark, for @Isaiahchonchoramirez.
+Everything else remains `☐` or pending.
 
 | Participant | Pull Shark | Pair Extraordinaire | Quickdraw | YOLO | Galaxy Brain | Starstruck | Public Sponsor |
 |---|---|---|---|---|---|---|---|
-| [@Isaiahchonchoramirez](https://github.com/Isaiahchonchoramirez) | ☐ | ☐ | ☐ | ☐ | ☐ | ☐ *(owner — see note)* | ☐ *(optional, paid)* |
+| [@Isaiahchonchoramirez](https://github.com/Isaiahchonchoramirez) | ✅ *(2026-08-10)* | ☐ | ☐ | ⏳ *(pending — see note)* | ☐ | ☐ *(owner — see note)* | ☐ *(optional, paid)* |
 | [@Indicaza](https://github.com/Indicaza) | ☐ | ☐ | ☐ | ☐ | ☐ | — *(owner only)* | ☐ *(optional, paid)* |
 | [@izawawi](https://github.com/izawawi) | ☐ | ☐ | ☐ | ☐ | ☐ | — *(owner only)* | ☐ *(optional, paid)* |
+
+**YOLO note:** PR #6 was authored and merged by @Isaiahchonchoramirez with no
+human review, which is the usual trigger. The badge is **not visible yet** as of
+2026-08-10T22:35Z, ten minutes after the merge. Achievements are commonly
+reported to take up to 24 hours, so this is undetermined rather than refused —
+recheck no earlier than 2026-08-11T22:25Z before drawing any conclusion.
 
 **Starstruck note:** only @Isaiahchonchoramirez can earn it, because only the
 repository creator gets credit — and it needs **16 genuine stars**, which three
@@ -578,7 +586,7 @@ Progress log — fill in the dates as things actually merge:
 
 | Participant | 1st PR merged | 2nd PR merged | Co-authored PR merged | Accepted answers | Notes |
 |---|---|---|---|---|---|
-| @Isaiahchonchoramirez | | | | 0 | |
+| @Isaiahchonchoramirez | 2026-08-10 (PR #3, `b227d93`) | 2026-08-10 (PR #6, `94b849a`) | | 0 | Pull Shark verified on profile 2026-08-10 |
 | @Indicaza | | | | 0 | |
 | @izawawi | | | | 0 | Joining later — on vacation |
 
