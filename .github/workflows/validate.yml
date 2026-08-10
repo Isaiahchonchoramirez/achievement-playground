@@ -41,6 +41,10 @@ jobs:
             LICENSE
             .gitignore
             scripts/validate-contributors.mjs
+            scripts/test-mission.mjs
+            game/mission.js
+            game/game.js
+            game/game.css
             .github/pull_request_template.md
             .github/ISSUE_TEMPLATE/add-contributor.yml
             .github/ISSUE_TEMPLATE/bug-report.yml
@@ -67,10 +71,16 @@ jobs:
       - name: Validate data/contributors.json
         run: node scripts/validate-contributors.mjs
 
+      - name: Run the Git Quest mission state-machine tests
+        run: node scripts/test-mission.mjs
+
       - name: Check JavaScript files for syntax errors
         run: |
           node --check app.js
           node --check scripts/validate-contributors.mjs
+          node --check game/mission.js
+          node --check game/game.js
+          node --check scripts/test-mission.mjs
           echo "JavaScript parses cleanly."
 
       - name: Check AI collaboration shell scripts
