@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Achievement Playground</title>
+  <meta name="description" content="A friendly practice repository for learning GitHub collaboration: branches, pull requests, reviews and merges.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">AP</span>
+        <span class="brand-text">Achievement<span class="brand-thin"> Playground</span></span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#contributors">Contributors</a></li>
+          <li><a href="#learn">Learn</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ───────────────────────────── Hero ───────────────────────────── -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <p class="eyebrow">A practice repository for real collaboration</p>
+        <h1>Achievement Playground</h1>
+        <p class="lede">
+          A small, real project where a group of friends learns how GitHub actually works —
+          branches, pull requests, code review, merges and co-authored commits — by making
+          genuine improvements to this site.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="CONTRIBUTING.md">Read the contribution guide</a>
+          <a class="btn btn-ghost" href="ACHIEVEMENTS.md">See the achievement checklist</a>
+        </div>
+        <p class="hero-note">
+          Every change here is a real change. Nothing in this project is busywork,
+          and nothing depends on strangers, payments or fake activity.
+        </p>
+      </div>
+    </section>
+
+    <!-- ──────────────────────────── How it works ─────────────────────── -->
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 id="how-title">How it works</h2>
+        <p class="section-lede">
+          Each contribution rotates through four roles, so everyone practises every part
+          of the workflow rather than repeating the same step.
+        </p>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Someone opens an issue</h3>
+            <p>A short, specific description of one real improvement — a typo, a contrast fix, a missing card.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Someone builds it on a branch</h3>
+            <p>They clone the repo, create a named branch, make the change, and open a pull request that closes the issue.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Someone reviews it</h3>
+            <p>A real read-through: does it work, is it readable, does the automated check pass?</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">4</span>
+            <h3>Someone merges it</h3>
+            <p>The change lands on <code>main</code>, the issue closes automatically, and the roles shift by one.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────── Contributors ──────────────────────── -->
+    <section class="section section-alt" id="contributors" aria-labelledby="contributors-title">
+      <div class="wrap">
+        <h2 id="contributors-title">Contributors</h2>
+        <p class="section-lede">
+          Every card below is rendered from <code>data/contributors.json</code>.
+          Adding yourself is your first pull request — see
+          <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>.
+        </p>
+
+        <!-- JavaScript replaces the contents of this list. -->
+        <div id="contributor-status" class="status" role="status">Loading contributors…</div>
+        <ul id="contributor-grid" class="card-grid"></ul>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────── Learn ─────────────────────────── -->
+    <section class="section" id="learn" aria-labelledby="learn-title">
+      <div class="wrap">
+        <h2 id="learn-title">What you will learn</h2>
+        <div class="learn-grid">
+          <article class="learn-card">
+            <h3>Branching</h3>
+            <p>Why nobody commits straight to <code>main</code>, and how a branch keeps your half-finished work out of everyone else's way.</p>
+          </article>
+          <article class="learn-card">
+            <h3>Pull requests</h3>
+            <p>How to propose a change, describe it well enough that someone can review it, and link it to the issue it solves.</p>
+          </article>
+          <article class="learn-card">
+            <h3>Review</h3>
+            <p>How to read someone else's diff, leave a comment that helps rather than nitpicks, and approve with confidence.</p>
+          </article>
+          <article class="learn-card">
+            <h3>Co-authoring</h3>
+            <p>How two people share credit for one commit using a <code>Co-authored-by</code> trailer.</p>
+          </article>
+          <article class="learn-card">
+            <h3>Automation</h3>
+            <p>How a GitHub Actions workflow checks every pull request before a human even looks at it.</p>
+          </article>
+          <article class="learn-card">
+            <h3>Fixing mistakes</h3>
+            <p>Merge conflicts, bad commits and accidental pushes — all recoverable, all covered in the guide.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Achievement Playground — a learning project. Released under the MIT License.</p>
+      <ul class="footer-links">
+        <li><a href="README.md">README</a></li>
+        <li><a href="CONTRIBUTING.md">Contributing</a></li>
+        <li><a href="CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+        <li><a href="ACHIEVEMENTS.md">Achievements</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

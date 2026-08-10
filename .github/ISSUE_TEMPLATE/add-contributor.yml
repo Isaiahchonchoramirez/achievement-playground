@@ -1,0 +1,63 @@
+name: "Add me as a contributor"
+description: "Claim your spot on the contributor wall. Open this first, then send the pull request that closes it."
+title: "Add contributor: <your GitHub username>"
+labels: ["good first issue", "contributor card"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome! This issue is the *first half* of your first contribution.
+
+        1. Fill this in and submit it.
+        2. Then follow [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md) to open a
+           pull request that adds you to `data/contributors.json`.
+        3. Write `Closes #<the number of this issue>` in the pull request
+           description so the issue closes automatically when it merges.
+
+        Please do not put your email address anywhere in this issue.
+
+  - type: input
+    id: name
+    attributes:
+      label: Display name
+      description: "The name you want shown on your card. A first name is fine."
+      placeholder: "Ada Lovelace"
+    validations:
+      required: true
+
+  - type: input
+    id: github
+    attributes:
+      label: GitHub username
+      description: "Just the username — no @ and no URL."
+      placeholder: "ada-lovelace"
+    validations:
+      required: true
+
+  - type: input
+    id: favorite-tech
+    attributes:
+      label: Favourite technology
+      description: "A language, framework, tool or piece of hardware. Max 60 characters."
+      placeholder: "Python"
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Your goal
+      description: "One sentence about what you want to get out of this project. Max 160 characters."
+      placeholder: "Learn how to review someone else's pull request without being scared of it."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Before you submit
+      options:
+        - label: "I have read the [Code of Conduct](../blob/main/CODE_OF_CONDUCT.md)."
+          required: true
+        - label: "I will open the pull request myself — this issue is not a request for someone else to do it."
+          required: true

@@ -1,0 +1,92 @@
+name: Validate
+
+# Runs on every push to main and on every pull request.
+# No secrets, no paid services, no external actions beyond GitHub's own.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Read-only: this workflow can never change the repository.
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate contributors and project files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check that every required file is present
+        run: |
+          missing=0
+          required_files="
+            index.html
+            styles.css
+            app.js
+            data/contributors.json
+            README.md
+            CONTRIBUTING.md
+            CODE_OF_CONDUCT.md
+            ACHIEVEMENTS.md
+            LICENSE
+            .gitignore
+            scripts/validate-contributors.mjs
+            .github/pull_request_template.md
+            .github/ISSUE_TEMPLATE/add-contributor.yml
+            .github/ISSUE_TEMPLATE/bug-report.yml
+          "
+          for file in $required_files; do
+            if [ -f "$file" ]; then
+              echo "  ok      $file"
+            else
+              echo "  MISSING $file"
+              missing=$((missing + 1))
+            fi
+          done
+          if [ "$missing" -gt 0 ]; then
+            echo ""
+            echo "::error::$missing required file(s) are missing. Did a rename or delete slip in?"
+            exit 1
+          fi
+          echo ""
+          echo "All required files are present."
+
+      - name: Run the contributor validator's own tests
+        run: node scripts/validate-contributors.mjs --self-test
+
+      - name: Validate data/contributors.json
+        run: node scripts/validate-contributors.mjs
+
+      - name: Check JavaScript files for syntax errors
+        run: |
+          node --check app.js
+          node --check scripts/validate-contributors.mjs
+          echo "JavaScript parses cleanly."
+
+      - name: Check the issue and pull request templates are valid YAML
+        run: |
+          for file in .github/ISSUE_TEMPLATE/*.yml .github/workflows/*.yml; do
+            node -e "
+              const fs = require('fs');
+              const text = fs.readFileSync('$file', 'utf8');
+              if (text.includes('\t')) {
+                console.error('::error file=$file::YAML must not contain tab characters. Use spaces.');
+                process.exit(1);
+              }
+              if (text.trim() === '') {
+                console.error('::error file=$file::File is empty.');
+                process.exit(1);
+              }
+            "
+            echo "  ok  $file"
+          done
