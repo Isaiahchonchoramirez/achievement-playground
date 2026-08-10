@@ -106,6 +106,25 @@ Two rules that never change, no matter how many people are involved:
 * **The Builder never merges their own pull request** — with exactly one
   exception, the YOLO step, where that is the entire point.
 
+### Exception: the "Add me as a contributor" issue
+
+**A self-introduction issue is always opened by the person introducing
+themselves**, so for that one contribution the Reporter and the Builder are the
+same person. The rotation tables below do not override this.
+
+This is not a loophole, it is unavoidable: the
+[Add me as a contributor](../../issues/new?template=add-contributor.yml) form
+asks for *your* display name, *your* favourite technology and *your* goal, and
+has a required checkbox reading *"I will open the pull request myself."* Nobody
+else can fill that in truthfully on your behalf.
+
+It changes nothing about attribution — Pull Shark credits whoever authored the
+merged pull request, which is the joiner either way. Reviewer and Merger still
+go to other people, so the first contribution is still reviewed by someone else.
+
+**The full four-role rotation starts at the first contribution that is not a
+self-introduction.**
+
 ### Rotation A — two active participants (start here)
 
 With two people, one person builds and the other does everything around it.

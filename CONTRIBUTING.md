@@ -61,6 +61,13 @@ Then open the pull request from the link git prints, or from the GitHub website.
 Go to the **Issues** tab → **New issue** → **Add me as a contributor**, and
 fill in the form.
 
+**You open this one yourself.** The form asks for your name, your favourite
+technology and your goal, so nobody else can fill it in for you — which means
+that for this first contribution you are both the Reporter and the Builder in
+the [role rotation](ACHIEVEMENTS.md#the-rotation). Somebody else still reviews
+and merges it. From your second contribution onward, the four roles split up
+properly.
+
 Note the issue number GitHub gives you (something like `#7`). You will need it
 in step 7.
 
