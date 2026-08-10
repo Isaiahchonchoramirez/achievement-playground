@@ -41,3 +41,13 @@ pnpm-debug.log*
 .env.*
 !.env.example
 .gstack/
+
+# Local AI collaboration artifacts
+/context*.txt
+/.context.tmp.*
+/context*.txt.tmp.*
+/change*.patch
+/ai-round-*.zip
+/pr-body.md
+/.ai-context/
+/setup-ai-loop.sh
