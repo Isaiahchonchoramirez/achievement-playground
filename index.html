@@ -7,6 +7,7 @@
   <meta name="description" content="A friendly practice repository for learning GitHub collaboration: branches, pull requests, reviews and merges.">
   <meta name="color-scheme" content="light dark">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="game/game.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
 </head>
 <body>
@@ -20,6 +21,7 @@
       </a>
       <nav aria-label="Main">
         <ul class="nav-list">
+          <li><a href="#quest-section">Git Quest</a></li>
           <li><a href="#how">How it works</a></li>
           <li><a href="#contributors">Contributors</a></li>
           <li><a href="#learn">Learn</a></li>
@@ -47,6 +49,30 @@
           Every change here is a real change. Nothing in this project is busywork,
           and nothing depends on strangers, payments or fake activity.
         </p>
+      </div>
+    </section>
+
+    <!-- ──────────────────── Git Quest: Branchfall ─────────────────────── -->
+    <section class="section section-alt" id="quest-section" aria-labelledby="quest-title">
+      <div class="wrap quest">
+        <h2 id="quest-title">Git Quest: Branchfall</h2>
+        <p class="section-lede">
+          A task lands on your desk. Move it through the workflow and watch the
+          commit graph react to every step. Get the order wrong and you will find
+          out why the order matters — nothing here is a dead end, and none of it
+          touches a real repository.
+        </p>
+
+        <div id="quest">
+          <p class="quest-noscript">Loading the mission…</p>
+        </div>
+
+        <noscript>
+          <p class="quest-noscript">
+            Git Quest needs JavaScript to run. The rest of this page works fine
+            without it.
+          </p>
+        </noscript>
       </div>
     </section>
 
@@ -146,5 +172,6 @@
   </footer>
 
   <script src="app.js"></script>
+  <script type="module" src="game/game.js"></script>
 </body>
 </html>

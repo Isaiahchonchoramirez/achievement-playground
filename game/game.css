@@ -1,0 +1,358 @@
+/* ==========================================================================
+   Git Quest: Branchfall — game styles
+
+   Loaded after styles.css and scoped under .quest, so nothing here can reach
+   the contributor wall. It reuses the custom properties defined in styles.css
+   (--accent, --surface, --border, …), so the game follows the site's light
+   and dark themes automatically.
+   ========================================================================== */
+
+.quest {
+  --quest-ok:    #15803d;
+  --quest-warn:  #b45309;
+  --quest-error: #b91c1c;
+  --quest-win:   #6d28d9;
+  --quest-dim:   color-mix(in srgb, var(--text) 55%, transparent);
+  --quest-rail:  color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+
+@media (prefers-color-scheme: dark) {
+  .quest {
+    --quest-ok:    #4ade80;
+    --quest-warn:  #fbbf24;
+    --quest-error: #f87171;
+    --quest-win:   #c4b5fd;
+  }
+}
+
+/* ------------------------------------------------------------------ shell -- */
+
+.quest-layout {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+@media (min-width: 56rem) {
+  .quest-layout { grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); }
+}
+
+.quest-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow);
+}
+
+.quest-panel h3 {
+  margin-bottom: var(--space-3);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--quest-dim);
+}
+
+/* -------------------------------------------------------------- task card -- */
+
+.quest-task h4 {
+  margin: 0 0 var(--space-2);
+  font-size: 1.0625rem;
+  line-height: 1.3;
+}
+
+.quest-task p {
+  margin: 0 0 var(--space-4);
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.quest-accept {
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.quest-accept li { display: flex; gap: var(--space-2); }
+.quest-accept li::before { content: "◦"; color: var(--accent); }
+
+/* -------------------------------------------------------------- workbench -- */
+
+.quest-actions {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  list-style: none;
+}
+
+.quest-action {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 140ms ease, background-color 140ms ease, transform 140ms ease;
+}
+
+.quest-action:hover:not(:disabled) {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.quest-action:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* .quest-action sets display:flex, which would otherwise beat the browser's
+   [hidden] { display: none } rule and leave hidden buttons on screen. */
+.quest-action[hidden] { display: none; }
+
+.quest-action .quest-key {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--quest-dim);
+}
+
+.quest-action[data-primary="true"]:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.quest-action[data-danger="true"]:not(:disabled) {
+  border-color: var(--quest-error);
+  color: var(--quest-error);
+}
+
+/* ------------------------------------------------------------------ graph -- */
+
+.quest-graph-wrap {
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+}
+
+/* The graph keeps its natural width so commit messages stay legible; the
+   wrapper above scrolls it horizontally on narrow screens rather than
+   shrinking the text to nothing. */
+.quest-graph {
+  display: block;
+  height: auto;
+}
+
+.quest-edge { stroke: var(--quest-rail); stroke-width: 2; fill: none; }
+
+.quest-node { fill: var(--surface); stroke: var(--quest-rail); stroke-width: 2; }
+.quest-node[data-lane="feature"] { stroke: var(--accent); }
+.quest-node[data-merge="true"] { fill: var(--accent-soft); }
+
+.quest-node-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--text);
+}
+
+.quest-node-sub {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  fill: var(--quest-dim);
+}
+
+.quest-branch-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  fill: var(--accent);
+}
+
+.quest-head-ring {
+  fill: none;
+  stroke: var(--focus);
+  stroke-width: 2;
+  stroke-dasharray: 3 3;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .quest-node, .quest-edge { transition: opacity 220ms ease; }
+  .quest-node[data-new="true"] { animation: quest-pop 260ms ease-out; }
+  @keyframes quest-pop {
+    from { opacity: 0; transform: scale(0.6); transform-origin: center; }
+    to   { opacity: 1; transform: scale(1); }
+  }
+}
+
+/* ------------------------------------------------------------------ state -- */
+
+.quest-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin-bottom: var(--space-4);
+}
+
+.quest-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 3px var(--space-3);
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.quest-chip[data-tone="ok"]    { border-color: var(--quest-ok);    color: var(--quest-ok); }
+.quest-chip[data-tone="warn"]  { border-color: var(--quest-warn);  color: var(--quest-warn); }
+.quest-chip[data-tone="error"] { border-color: var(--quest-error); color: var(--quest-error); }
+
+/* -------------------------------------------------------------- checklist -- */
+
+.quest-steps {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  counter-reset: quest;
+  font-size: 0.875rem;
+}
+
+.quest-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text-muted);
+}
+
+.quest-step::before {
+  counter-increment: quest;
+  content: counter(quest);
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+.quest-step[data-done="true"] { color: var(--text); }
+.quest-step[data-done="true"]::before {
+  content: "✓";
+  border-color: var(--quest-ok);
+  background: var(--quest-ok);
+  color: var(--bg);
+}
+
+/* --------------------------------------------------------------- feedback -- */
+
+.quest-feedback {
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+.quest-feedback[data-tone="ok"]    { border-left-color: var(--quest-ok); }
+.quest-feedback[data-tone="warn"]  { border-left-color: var(--quest-warn); }
+.quest-feedback[data-tone="error"] { border-left-color: var(--quest-error); }
+.quest-feedback[data-tone="win"]   { border-left-color: var(--quest-win); }
+
+.quest-feedback h4 {
+  margin: 0 0 var(--space-2);
+  font-size: 0.9375rem;
+}
+
+.quest-feedback[data-tone="ok"]    h4 { color: var(--quest-ok); }
+.quest-feedback[data-tone="warn"]  h4 { color: var(--quest-warn); }
+.quest-feedback[data-tone="error"] h4 { color: var(--quest-error); }
+.quest-feedback[data-tone="win"]   h4 { color: var(--quest-win); }
+
+.quest-feedback p { margin: 0; font-size: 0.9375rem; color: var(--text-muted); }
+.quest-feedback .quest-next {
+  margin-top: var(--space-3);
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------------ footer -- */
+
+.quest-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.quest-note {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--quest-dim);
+}
+
+.quest-restart {
+  min-height: 2.5rem;
+  padding: 0 var(--space-4);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.quest-restart:hover { border-color: var(--accent); color: var(--accent); }
+
+.quest-incidents {
+  margin-top: var(--space-3);
+  padding-left: var(--space-6);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* Visible to screen readers only. Used for the graph description and for
+   the done/not-done state of each checklist row. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.quest-noscript {
+  padding: var(--space-6);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+  text-align: center;
+}

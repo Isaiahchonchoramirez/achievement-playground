@@ -18,6 +18,11 @@ A single-page site — plain HTML, CSS and JavaScript, no frameworks, no build
 step, no dependencies — that renders a contributor card for every person listed
 in `data/contributors.json`.
 
+It also hosts **Git Quest: Branchfall**, a playable mission that walks you
+through branch → commit → pull request → validation → review → merge with a live
+commit graph. Get the order wrong and it tells you what happened and how to
+recover. Nothing in it runs a real Git command — it is a simulation.
+
 Adding yourself to that file is your first pull request. Everything after that
 is real work on a real (if small) project.
 
@@ -64,10 +69,15 @@ Live Server extension, whatever you already have.
 ├── index.html                          The whole site — one page
 ├── styles.css                          All styling; the tweakable values are at the top
 ├── app.js                              Reads contributors.json, builds the cards
+├── game/
+│   ├── mission.js                      Git Quest rules — a pure, DOM-free state machine
+│   ├── game.js                         Renders the mission and dispatches actions
+│   └── game.css                        Game styling, scoped under .quest
 ├── data/
 │   └── contributors.json               ← the file you edit to add yourself
 ├── scripts/
-│   └── validate-contributors.mjs       Checks that file; run it before you push
+│   ├── validate-contributors.mjs       Checks that file; run it before you push
+│   └── test-mission.mjs                Tests the Git Quest state machine
 ├── .github/
 │   ├── workflows/validate.yml          Runs the checks on every pull request
 │   ├── pull_request_template.md        Auto-fills when you open a PR
