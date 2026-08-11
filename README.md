@@ -61,7 +61,7 @@ cd achievement-playground
 node scripts/validate-contributors.mjs
 
 # Serve the site — do NOT just double-click index.html
-python3 -m http.server 8000
+npm run dev
 ```
 
 Then open <http://localhost:8000>.
@@ -70,8 +70,9 @@ Then open <http://localhost:8000>.
 > `fetch()`, and browsers block that on `file://` URLs for security reasons.
 > The page will show an error telling you the same thing.
 
-Any static server works — `npx serve`, `php -S localhost:8000`, the VS Code
-Live Server extension, whatever you already have.
+`npm run dev` starts Python's static server on port 8000. Any static server also
+works — `npx serve`, `php -S localhost:8000`, the VS Code Live Server extension,
+or whatever you already have.
 
 ---
 
