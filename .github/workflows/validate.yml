@@ -45,6 +45,12 @@ jobs:
             game/mission.js
             game/game.js
             game/game.css
+            data/achievements.js
+            command-center.js
+            game/practice-missions.js
+            game/practice.js
+            scripts/test-command-center.mjs
+            package.json
             .github/pull_request_template.md
             .github/ISSUE_TEMPLATE/add-contributor.yml
             .github/ISSUE_TEMPLATE/bug-report.yml
@@ -74,12 +80,20 @@ jobs:
       - name: Run the Git Quest mission state-machine tests
         run: node scripts/test-mission.mjs
 
+      - name: Test the Achievement Command Center
+        run: node scripts/test-command-center.mjs
+
       - name: Check JavaScript files for syntax errors
         run: |
           node --check app.js
           node --check scripts/validate-contributors.mjs
           node --check game/mission.js
           node --check game/game.js
+          node --check data/achievements.js
+          node --check command-center.js
+          node --check game/practice-missions.js
+          node --check game/practice.js
+          node --check scripts/test-command-center.mjs
           node --check scripts/test-mission.mjs
           echo "JavaScript parses cleanly."
 

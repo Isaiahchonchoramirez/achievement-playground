@@ -23,6 +23,13 @@ through branch → commit → pull request → validation → review → merge w
 commit graph. Get the order wrong and it tells you what happened and how to
 recover. Nothing in it runs a real Git command — it is a simulation.
 
+The **Achievement Command Center** keeps verified evidence, pending checks and
+historical or unavailable achievements visibly separate. Its eight-mission
+practice lab covers branching, focused commits, pull requests, review feedback,
+merge conflicts, safe merging, truthful co-authorship and responsible Discussion
+answers. Every mission is a browser-only simulation: the site never asks for a
+GitHub token and never writes to GitHub.
+
 Adding yourself to that file is your first pull request. Everything after that
 is real work on a real (if small) project.
 
@@ -69,15 +76,20 @@ Live Server extension, whatever you already have.
 ├── index.html                          The whole site — one page
 ├── styles.css                          All styling; the tweakable values are at the top
 ├── app.js                              Reads contributors.json, builds the cards
+├── command-center.js                   Renders achievement status and evidence
+├── data/
+│   ├── achievements.js                 Verified records and ethical next actions
+│   └── contributors.json               ← the file you edit to add yourself
 ├── game/
 │   ├── mission.js                      Git Quest rules — a pure, DOM-free state machine
 │   ├── game.js                         Renders the mission and dispatches actions
-│   └── game.css                        Game styling, scoped under .quest
-├── data/
-│   └── contributors.json               ← the file you edit to add yourself
+│   ├── game.css                        Game styling, scoped under .quest
+│   ├── practice-missions.js            Eight pure practice mission definitions
+│   └── practice.js                     Practice mission browser interface
 ├── scripts/
 │   ├── validate-contributors.mjs       Checks that file; run it before you push
-│   └── test-mission.mjs                Tests the Git Quest state machine
+│   ├── test-mission.mjs                Tests the Git Quest state machine
+│   └── test-command-center.mjs         Tests records, routing and safety invariants
 ├── .github/
 │   ├── workflows/validate.yml          Runs the checks on every pull request
 │   ├── pull_request_template.md        Auto-fills when you open a PR
