@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Achievement Playground</title>
-  <meta name="description" content="A friendly practice repository for learning GitHub collaboration: branches, pull requests, reviews and merges.">
+  <title>GitHub Achievement Playground</title>
+  <meta name="description" content="Learn real GitHub workflows, verify achievement evidence, and practice safely in Branchfall.">
   <meta name="color-scheme" content="light dark">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="game/game.css">
@@ -21,8 +21,10 @@
       </a>
       <nav aria-label="Main">
         <ul class="nav-list">
-          <li><a href="#quest-section">Git Quest</a></li>
-          <li><a href="#how">How it works</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#practice">Practice</a></li>
+          <li><a href="#quest-section">Branchfall</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
           <li><a href="#contributors">Contributors</a></li>
           <li><a href="#learn">Learn</a></li>
         </ul>
@@ -31,24 +33,66 @@
   </header>
 
   <main id="main">
-    <!-- ───────────────────────────── Hero ───────────────────────────── -->
-    <section class="hero" id="top">
-      <div class="wrap">
-        <p class="eyebrow">A practice repository for real collaboration</p>
-        <h1>Achievement Playground</h1>
-        <p class="lede">
-          A small, real project where a group of friends learns how GitHub actually works —
-          branches, pull requests, code review, merges and co-authored commits — by making
-          genuine improvements to this site.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="CONTRIBUTING.md">Read the contribution guide</a>
-          <a class="btn btn-ghost" href="ACHIEVEMENTS.md">See the achievement checklist</a>
+    <!-- ───────────────────── Achievement command center ───────────────── -->
+    <section class="hero command-hero" id="top">
+      <div class="wrap command-hero__grid">
+        <div class="command-hero__copy">
+          <p class="eyebrow">Evidence first · skills always</p>
+          <h1>GitHub Achievement<br><span>Playground</span></h1>
+          <p class="lede">Learn the workflows behind GitHub achievements, practise them in a safe simulation, and keep earned evidence separate from unofficial requirements.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#quest-section">Practice in Branchfall</a>
+            <a class="btn btn-ghost" href="#achievements">Review verified progress</a>
+          </div>
+          <p class="hero-note">No tokens. No automated GitHub activity. No guaranteed badges.</p>
         </div>
-        <p class="hero-note">
-          Every change here is a real change. Nothing in this project is busywork,
-          and nothing depends on strangers, payments or fake activity.
-        </p>
+        <aside class="progress-console" aria-label="Isaiah's verified progress">
+          <div class="progress-console__head"><span>ISAIAH / VERIFIED</span><span class="live-dot">Evidence current</span></div>
+          <strong class="progress-count">2</strong>
+          <span class="progress-label">verified achievements</span>
+          <div class="evidence-rail" aria-hidden="true">
+            <span class="rail-node rail-node--earned">PS</span><i></i>
+            <span class="rail-node rail-node--earned">QD</span><i></i>
+            <span class="rail-node rail-node--pending">YO</span>
+          </div>
+          <dl class="progress-facts">
+            <div><dt>Pull Shark</dt><dd>earned</dd></div>
+            <div><dt>Quickdraw</dt><dd>earned</dd></div>
+            <div><dt>YOLO</dt><dd>pending / undetermined</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section command-section" id="achievements" aria-labelledby="achievements-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="eyebrow">Achievement status board</p><h2 id="achievements-title">Know what is proven.</h2></div>
+          <p>Official documentation is labelled separately from community-reported requirements. A card never promises that an unofficial condition will trigger a badge.</p>
+        </div>
+        <div id="achievement-board" class="achievement-board">
+          <p class="status">Loading verified achievement records…</p>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="evidence-dialog" id="evidence-dialog" aria-labelledby="evidence-title">
+      <div class="evidence-dialog__head">
+        <div><p class="eyebrow" data-evidence-status></p><h2 id="evidence-title" data-evidence-title></h2></div>
+        <button type="button" class="dialog-close" data-close-dialog aria-label="Close evidence">×</button>
+      </div>
+      <p data-evidence-summary></p>
+      <ul class="evidence-list" data-evidence-list></ul>
+      <p class="evidence-disclaimer">Evidence links open the real GitHub record. Requirements beyond GitHub’s documentation remain unofficial.</p>
+    </dialog>
+
+    <section class="section section-alt" id="practice" aria-labelledby="practice-heading">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="eyebrow">Safe workflow lab</p><h2 id="practice-heading">Eight missions. Zero repository writes.</h2></div>
+          <p>Choose one skill, make decisions in the simulated workbench, and learn from the consequence before doing it for real.</p>
+        </div>
+        <div id="practice-lab" class="practice-lab"><p class="quest-noscript">Loading practice missions…</p></div>
       </div>
     </section>
 
@@ -73,6 +117,21 @@
             without it.
           </p>
         </noscript>
+      </div>
+    </section>
+
+    <section class="section roadmap-section" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="wrap roadmap-grid">
+        <div>
+          <p class="eyebrow">What should I do next?</p>
+          <h2 id="roadmap-title">Build a body of work, not a badge factory.</h2>
+          <p class="section-lede">The order below favors useful software, demonstrated skills, and honest collaboration. Achievement updates are evidence of the work, never the reason to manufacture it.</p>
+          <div class="difference-card">
+            <div><span>Automation tools</span><strong>Trigger activity</strong><p>Execute GitHub operations to pursue badge conditions.</p></div>
+            <div><span>Achievement Playground</span><strong>Build capability</strong><p>Teach the workflow, simulate it safely, and verify evidence after real work.</p></div>
+          </div>
+        </div>
+        <ol class="roadmap-list" id="roadmap-list"></ol>
       </div>
     </section>
 
@@ -172,6 +231,8 @@
   </footer>
 
   <script src="app.js"></script>
+  <script type="module" src="command-center.js"></script>
+  <script type="module" src="game/practice.js"></script>
   <script type="module" src="game/game.js"></script>
 </body>
 </html>

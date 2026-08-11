@@ -13,6 +13,14 @@ Build **Git Quest: Branchfall** from `VISION.md`.
 5. Multiple deterministic missions with progression.
 6. Polish: motion, soundless feedback, keyboard UX, responsive layout.
 
+## Achievement Command Center
+
+The first command-center release is implemented on
+`feature/achievement-command-center`: verified status records, evidence drawer,
+ethical roadmap, and eight safe practice missions. Future work should deepen
+individual practice missions only when it adds real decisions and recovery
+paths; do not add GitHub write automation.
+
 ## Other worthwhile work
 
 - Contributor search/filtering can become a real feature. Mission one now asks the

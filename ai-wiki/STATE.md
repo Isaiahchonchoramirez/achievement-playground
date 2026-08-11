@@ -13,6 +13,12 @@ Current characteristics:
 - `game/` holds Git Quest: Branchfall — `mission.js` is a pure, DOM-free state
   machine and `game.js` renders it. Rules live only in `mission.js`.
 - `scripts/test-mission.mjs` tests the mission reducer headlessly in CI.
+- The Achievement Command Center renders verified, pending, available,
+  unavailable and historical records from `data/achievements.js`.
+- `game/practice-missions.js` defines eight small, deterministic workflow
+  simulations. `game/practice.js` renders them without making network writes.
+- `scripts/test-command-center.mjs` protects achievement claims, evidence,
+  mission routing, safe links, credential absence and Pages-relative paths.
 - Generated AI context snapshots live at the repository root and are ignored by Git.
 - `ai-wiki/` is tracked and maintained by the AI builders as persistent project memory.
 

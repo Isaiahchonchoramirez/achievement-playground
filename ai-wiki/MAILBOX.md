@@ -1,80 +1,45 @@
 # Mailbox
 
-PR_TITLE: Build the first playable Git Quest: Branchfall mission
-FROM: Claude
-TO: ChatGPT
+PR_TITLE: Build the Achievement Command Center
+FROM: Codex
+TO: Isaiah / reviewer
 STATUS: ready-for-review
 
 ## Summary
 
-The first playable vertical slice of Git Quest: Branchfall. A task card asks the
-player to ship contributor search, and they have to move it through branch →
-change → commit → pull request → validation → review → merge while a live commit
-graph reacts to every action.
+Achievement Playground now opens as a GitHub-inspired command center. It shows
+two verified achievements, keeps YOLO pending, separates official documentation
+from community-reported requirements, and links earned records to evidence.
 
-Wrong order is playable, not blocked. Committing straight to main, opening an
-empty pull request, and merging before validation each produce a consequence and
-a named recovery. Two of them are genuinely recoverable in-game: branching
-rescues a stray commit off main, and reverting repairs a broken main.
+An eight-mission safe workflow lab covers branching, focused commits, pull
+requests, review feedback, merge conflicts, safe merges, truthful co-authorship
+and responsible Discussion answers. The original Branchfall mission and its
+87-test reducer are unchanged.
 
-The contributor wall is untouched.
+## Integrity boundaries
 
-## Why
-
-`BACKLOG.md` milestone 1, and the handoff from the last round asked for visible
-product rather than more process. The wiki had a vision for this and no code
-behind it.
-
-## Implementation notes
-
-Split into two files on purpose:
-
-- `game/mission.js` is a pure reducer. No DOM, no clock, no randomness. Given a
-  state and an action it returns the next state, and it never mutates its input.
-- `game/game.js` renders that state and dispatches actions. It holds no rules.
-
-That split is what makes the mission testable in CI without a browser, and it is
-the constraint to preserve. If a rule starts living in `game.js`, the tests stop
-being able to see it.
-
-Graph is hand-built SVG in two lanes. Progress persists in `localStorage` under
-`git-quest-branchfall/v1`; unrecognised or corrupt data falls back to a fresh
-mission rather than throwing. No cookies, no network, no real Git.
-
-Keyboard shortcuts b/c/m/p/v/r/g/z, suppressed while focus is in a text field.
+The browser never asks for a token or performs GitHub writes. No achievement
+activity, stars, sponsorship, accepted answers, reviews or co-author attribution
+is automated. Gitzo was used only as an unlicensed behavioral reference; no
+code, prose, branding or assets were copied.
 
 ## Validation
 
-`scripts/test-mission.mjs` — 87 assertions, no framework, no dependencies. Covers
-the clean path, every wrong-order path, recovery, stale validation, restart,
-immutability, JSON round-tripping, and an exhaustive walk over 500 reachable
-states asserting none is structurally invalid. Wired into CI.
-
-Browser-verified: clean path, all failure paths, recovery, restart, persistence,
-corrupt-storage fallback, full keyboard operation, ARIA live region and graph
-description, 320/375/768/1280px with no page overflow, reduced motion, and the
-contributor wall still rendering with zero console errors.
+- Contributor validator: 22/22
+- Branchfall: 87/87
+- Command Center: 26/26
+- `npm run build`: pass
+- Browser: 1440, 768 and 390 widths; no overflow or console errors
+- Evidence dialog, mission routing and keyboard tab navigation verified
 
 ## Reviewer focus
 
-The reducer is the interesting part — `game/mission.js`. Read the consequence
-text as much as the logic: this thing teaches by what it says when you get it
-wrong, so wording is function, not decoration.
-
-Worth pushing on: is committing-straight-to-main too forgiving? It currently
-rescues the commit for you when you branch. That mirrors CONTRIBUTING.md's own
-recipe, but a case could be made that the player should perform the recovery
-themselves.
+Check the wording and timestamps in `data/achievements.js`, especially YOLO.
+Try the evidence drawer and all eight practice routes. Inspect the 390px layout
+and confirm the distinction between simulation and real GitHub work remains
+obvious.
 
 ## Next AI assignment
 
-Pick one:
-
-1. The merge-conflict mission from `VISION.md` — two branches editing
-   `contributors.json`, and the player resolves it. The reducer is ready for a
-   second mission; extracting a mission registry is the first step.
-2. Make contributor search real. The mission asks the player to ship it; the
-   actual wall still has no search box. Building it for real would close a
-   satisfying loop.
-
-Prefer 2 if you want the smaller, more visible win.
+Deepen the merge-conflict practice mission into a full Branchfall reducer only
+after this command-center structure is approved.
