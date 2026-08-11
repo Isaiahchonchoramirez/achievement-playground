@@ -184,9 +184,8 @@ affected.
    ```
    They must accept the invitation from their email or from
    <https://github.com/notifications>.
-2. **If branch protection is already on, turn it off for one round** so the new
-   person can do their YOLO merge, then turn it straight back on. See
-   [YOLO](#3-yolo--everyone-once-before-branch-protection-is-enabled).
+2. Keep branch protection and repository safeguards unchanged. A new person
+   does not need to reproduce any earlier YOLO attempt.
 3. Add them to the [Who is taking part](#who-is-taking-part) table and to the
    [per-participant checklist](#per-participant-checklist) — as its own small
    pull request, which someone else reviews.
@@ -202,7 +201,7 @@ step 1 of [CONTRIBUTING.md](CONTRIBUTING.md) exactly as everyone else did:
    pull request that closes your issue.
 3. Take the **Builder** seat in the next round — building is the seat that earns
    Pull Shark, so a new joiner goes there first.
-4. Do your YOLO merge before branch protection goes back on.
+4. Follow the repository's current review and merge rules.
 5. Pair with whoever has the fewest co-authored commits so far, so
    Pair Extraordinaire evens out across the group.
 
@@ -213,13 +212,9 @@ costs you nothing except three weeks.
 
 ## Walkthroughs
 
-Do them roughly in this order. Only one ordering constraint really matters:
-
-> **Step 3 (YOLO) must happen while branch protection is still off.** A rule
-> requiring an approving review makes an unreviewed merge impossible. So
-> everyone active does their YOLO merge first, and branch protection goes on
-> afterwards. When @izawawi joins later, protection comes off for one round so
-> they can do theirs too.
+Do them roughly in this order, but never weaken repository safeguards to make
+an achievement condition possible. YOLO is community-reported and optional; if
+the repository requires review, the correct action is to keep that protection.
 
 Everything else can happen in any order, in parallel, and at whatever pace suits
 the two of you. @Isaiahchonchoramirez and @Indicaza can complete steps 1-5
@@ -343,13 +338,12 @@ not touch is falsifying authorship.
 
 ---
 
-### 3. YOLO — everyone, once, before branch protection is enabled
+### 3. YOLO — optional and only within the normal repository process
 
 **Requirement (community-sourced):** merge a pull request without a code review.
 
-**Why this is safe here:** merging without review is normally a bad habit. It is
-acceptable for exactly one category of change: a small, self-contained,
-non-breaking edit that the automated check already validates. Everyone gets one.
+Merging without review is normally a bad habit. Never manufacture an unreviewed
+pull request or alter safeguards to pursue this community-reported condition.
 
 **What each participant does**
 
@@ -361,26 +355,25 @@ non-breaking edit that the automated check already validates. Everyone gets one.
 2. Branch, commit, push, open the pull request as normal.
 3. Wait for the **Validate** check to go green. This is not optional — the
    automated check is the safety net that makes an unreviewed merge reasonable.
-4. Merge it yourself, with **no reviewer assigned and no approval**.
-5. Say so in the pull request description: *"Merging without review — YOLO step,
-   documentation-only change, Validate is green."*
+4. Inspect submitted review states. Bot or COMMENTED review behavior is not
+   publicly defined for achievement eligibility.
+5. Only if the repository's existing process naturally permits an unreviewed
+   merge, merge normally. Otherwise stop and keep the review requirement.
 
 **Who does what**
 
 * **Opens the issue:** yourself, or skip the issue for this one.
 * **Writes the PR:** yourself.
-* **Reviews:** nobody. That is the point.
-* **Merges:** yourself.
+* **Reviews and merge:** whatever the repository's current process requires.
 
 **Repeatable?** No — one-time badge with no tiers. Do it once and go back to
 reviewing properly.
 
 **Delay:** up to 24 hours.
 
-**Uncertainty:** low, but note that if **branch protection requiring a review is
-already on, this is impossible.** That is why this step comes before repository
-hardening. Once everyone has done it, turn protection on and never merge
-unreviewed again.
+**Uncertainty:** high. GitHub does not officially document this condition, and
+submitted bot review behavior may affect it. Never disable branch protection,
+dismiss reviews, or remove required reviewers to test it.
 
 **Doing it honestly:** the change still has to be a real improvement. "YOLO" is
 about skipping the review, not about skipping the work.

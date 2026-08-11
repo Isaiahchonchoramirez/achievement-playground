@@ -3,6 +3,7 @@ export const RECHECK_AT = '2026-08-11T22:25:48Z';
 export const achievements = Object.freeze([
   {
     id: 'pull-shark', name: 'Pull Shark', status: 'earned', statusLabel: 'Earned',
+    classification: 'community', dependency: 'GitHub determines credit',
     source: 'Community-reported requirement · verified evidence', icon: 'PS',
     summary: 'Two authored pull requests were merged into Achievement Playground.',
     next: 'Keep shipping useful, separately reviewable improvements. Higher tiers are long-term milestones, not a reason to split work artificially.',
@@ -18,6 +19,7 @@ export const achievements = Object.freeze([
   },
   {
     id: 'quickdraw', name: 'Quickdraw', status: 'earned', statusLabel: 'Earned',
+    classification: 'community', dependency: 'GitHub determines credit',
     source: 'Community-reported requirement · verified evidence', icon: 'QD',
     summary: 'Issue #7 was closed by a real corrective commit 30 seconds after creation.',
     next: 'Treat this as complete. Future issues should follow the normal contribution workflow.',
@@ -32,6 +34,7 @@ export const achievements = Object.freeze([
   },
   {
     id: 'yolo', name: 'YOLO', status: 'pending', statusLabel: 'Pending verification',
+    classification: 'community', dependency: 'GitHub determines credit',
     source: 'Community-reported requirement · outcome undetermined', icon: 'YO',
     summary: 'PR #6 was merged without a human review. The achievement must not be evaluated before the recheck time.',
     next: 'Recheck separately after the deadline and only when explicitly authorized. Do not create another test PR.',
@@ -47,6 +50,7 @@ export const achievements = Object.freeze([
   },
   {
     id: 'pair-extraordinaire', name: 'Pair Extraordinaire', status: 'available', statusLabel: 'Genuine collaboration',
+    classification: 'community', dependency: 'Requires a genuine collaborator and GitHub credit',
     source: 'Community-reported requirement', icon: 'PE',
     summary: 'Credit belongs only when two people actually create the same commit together.',
     next: 'Pair on one meaningful feature, agree on the final commit, and add one accurate Co-authored-by trailer.',
@@ -54,6 +58,7 @@ export const achievements = Object.freeze([
   },
   {
     id: 'galaxy-brain', name: 'Galaxy Brain', status: 'available', statusLabel: 'Accepted answers',
+    classification: 'community', dependency: 'Another person or repository moderator must accept the answer',
     source: 'Community-reported requirement', icon: 'GB',
     summary: 'Helpful GitHub Discussion answers may count only when the question author accepts them.',
     next: 'Answer questions you can genuinely solve. Never request acceptance as an achievement favor.',
@@ -61,6 +66,7 @@ export const achievements = Object.freeze([
   },
   {
     id: 'starstruck', name: 'Starstruck', status: 'available', statusLabel: 'Genuine public interest',
+    classification: 'community', dependency: 'Depends on genuine interest from other GitHub users',
     source: 'Community-reported requirement', icon: 'ST',
     summary: 'Stars must come from people who independently find a public project useful.',
     next: 'Launch useful, complete work with a clear README and demo. Do not ask for, trade, buy, or automate stars.',
@@ -68,30 +74,35 @@ export const achievements = Object.freeze([
   },
   {
     id: 'public-sponsor', name: 'Public Sponsor', status: 'optional', statusLabel: 'Optional · costs money',
+    classification: 'payment', dependency: 'Requires an optional real-money sponsorship',
     source: 'Community-reported requirement', icon: 'SP',
     summary: 'Public sponsorship is a real financial decision, not a required project step.',
     next: 'Sponsor only a maintainer whose work you use, at a price you independently choose.', evidence: [],
   },
   {
     id: 'heart-on-your-sleeve', name: 'Heart On Your Sleeve', status: 'unavailable', statusLabel: 'Experimental / unavailable',
+    classification: 'uncertain', dependency: 'No supported earning route',
     source: 'Community-reported status · not official', icon: 'HS',
     summary: 'Reported during an experimental rollout and not currently available as a supported achievement.',
     next: 'No action. Do not manufacture reactions.', evidence: [],
   },
   {
     id: 'open-sourcerer', name: 'Open Sourcerer', status: 'unavailable', statusLabel: 'Experimental / unavailable',
+    classification: 'uncertain', dependency: 'No supported earning route',
     source: 'Community-reported status · not official', icon: 'OS',
     summary: 'Reported during an experimental rollout and not currently available as a supported achievement.',
     next: 'Contribute across projects only when the work is genuinely useful.', evidence: [],
   },
   {
     id: 'arctic-code-vault', name: 'Arctic Code Vault Contributor', status: 'historical', statusLabel: 'Historical',
+    classification: 'historical', dependency: 'Only the February 2, 2020 archive snapshot qualified',
     source: 'Historical GitHub Archive Program event', icon: 'AC',
     summary: 'This recognized contributions included in GitHub’s one-off 2020 archive snapshot.',
     next: 'No current earning route exists.', evidence: [],
   },
   {
     id: 'mars-2020', name: 'Mars 2020 Contributor', status: 'historical', statusLabel: 'Historical',
+    classification: 'official-historical', dependency: 'The official event has ended',
     source: 'Official GitHub documentation', icon: 'M20',
     summary: 'GitHub states that this event ended and the badge is no longer available.',
     next: 'No action. Learn from the qualifying open-source work instead.',
@@ -116,7 +127,7 @@ export function validateAchievementRecords(records = achievements) {
     const at = `record ${index + 1}`;
     if (!record || typeof record !== 'object') errors.push(`${at} must be an object`);
     else {
-      ['id', 'name', 'status', 'statusLabel', 'source', 'summary', 'next'].forEach((key) => {
+      ['id', 'name', 'status', 'statusLabel', 'classification', 'dependency', 'source', 'summary', 'next'].forEach((key) => {
         if (typeof record[key] !== 'string' || !record[key].trim()) errors.push(`${at} needs ${key}`);
       });
       if (!statuses.has(record.status)) errors.push(`${at} has unknown status`);

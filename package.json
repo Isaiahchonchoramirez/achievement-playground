@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node scripts/validate-contributors.mjs --self-test && node scripts/validate-contributors.mjs && node scripts/test-mission.mjs && node scripts/test-command-center.mjs",
-    "lint": "node --check app.js && node --check command-center.js && node --check data/achievements.js && node --check game/mission.js && node --check game/game.js && node --check game/practice-missions.js && node --check game/practice.js && node --check scripts/test-command-center.mjs",
+    "test": "node scripts/validate-contributors.mjs --self-test && node scripts/validate-contributors.mjs && node scripts/test-mission.mjs && node scripts/test-command-center.mjs && node scripts/test-guided-paths.mjs",
+    "lint": "node --check app.js && node --check command-center.js && node --check data/achievements.js && node --check data/guided-paths.js && node --check guided-paths.js && node --check game/mission.js && node --check game/game.js && node --check game/practice-missions.js && node --check game/practice.js && node --check scripts/test-command-center.mjs && node --check scripts/test-guided-paths.mjs",
     "build": "npm run test && npm run lint"
   }
 }

@@ -52,6 +52,11 @@ function buildCard(record) {
     practice.textContent = 'Practice this workflow';
     actions.append(practice);
   }
+  const guide = document.createElement('a');
+  guide.className = 'text-action';
+  guide.href = `paths.html?achievement=${encodeURIComponent(record.id)}`;
+  guide.textContent = record.status === 'historical' || record.status === 'unavailable' ? 'Visit exhibit' : 'Open guided path';
+  actions.append(guide);
   return article;
 }
 
