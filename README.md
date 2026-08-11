@@ -30,6 +30,12 @@ merge conflicts, safe merging, truthful co-authorship and responsible Discussion
 answers. Every mission is a browser-only simulation: the site never asks for a
 GitHub token and never writes to GitHub.
 
+**Guided Achievement Paths** turns those records into step-by-step field
+manuals. Each path pairs original interface illustrations with macOS/Linux,
+PowerShell, GitHub CLI and GitHub website instructions, safe command copying,
+Branchfall practice, local-only progress and manually supplied public evidence.
+The browser never executes a command or sends evidence URLs anywhere.
+
 Adding yourself to that file is your first pull request. Everything after that
 is real work on a real (if small) project.
 
@@ -77,8 +83,12 @@ Live Server extension, whatever you already have.
 ├── styles.css                          All styling; the tweakable values are at the top
 ├── app.js                              Reads contributors.json, builds the cards
 ├── command-center.js                   Renders achievement status and evidence
+├── paths.html                          Guided Paths field manual
+├── guided-paths.js                     Routing, command safety and local progress
+├── guided-paths.css                    Guided Paths visual system
 ├── data/
 │   ├── achievements.js                 Verified records and ethical next actions
+│   ├── guided-paths.js                  Guide content linked to shared records
 │   └── contributors.json               ← the file you edit to add yourself
 ├── game/
 │   ├── mission.js                      Git Quest rules — a pure, DOM-free state machine
@@ -89,7 +99,8 @@ Live Server extension, whatever you already have.
 ├── scripts/
 │   ├── validate-contributors.mjs       Checks that file; run it before you push
 │   ├── test-mission.mjs                Tests the Git Quest state machine
-│   └── test-command-center.mjs         Tests records, routing and safety invariants
+│   ├── test-command-center.mjs         Tests records, routing and safety invariants
+│   └── test-guided-paths.mjs           Tests guides, quoting, URLs and privacy
 ├── .github/
 │   ├── workflows/validate.yml          Runs the checks on every pull request
 │   ├── pull_request_template.md        Auto-fills when you open a PR

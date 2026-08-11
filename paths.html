@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guided Achievement Paths · Achievement Playground</title>
+  <meta name="description" content="Practice legitimate GitHub achievement workflows one safe step at a time.">
+  <meta name="color-scheme" content="dark">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="guided-paths.css">
+</head>
+<body class="paths-page">
+  <a class="skip-link" href="#guide-main">Skip to guide</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html#top"><span class="brand-mark" aria-hidden="true">AP</span><span>Achievement<span class="brand-thin"> Playground</span></span></a>
+      <nav aria-label="Guided paths"><a class="back-link" href="index.html#achievements">← Achievement Command Center</a></nav>
+    </div>
+  </header>
+
+  <main id="guide-main">
+    <section class="path-hero">
+      <div class="wrap path-hero__grid">
+        <div><p class="eyebrow">Guided achievement paths</p><h1>Learn the route.<br><span>Keep the judgment.</span></h1><p class="lede">A field manual for practising Git and GitHub workflows safely, then applying them to work that matters.</p></div>
+        <ol class="handoff-rail" aria-label="Learning sequence"><li><b>01</b><span>Practice</span><small>Branchfall simulation</small></li><li><b>02</b><span>Review</span><small>Evidence checklist</small></li><li><b>03</b><span>Apply</span><small>Your real project</small></li></ol>
+      </div>
+    </section>
+
+    <div class="wrap path-layout">
+      <aside class="path-sidebar" aria-label="Achievement paths">
+        <p class="sidebar-label">Choose a route</p>
+        <nav id="path-nav"></nav>
+        <p class="sidebar-privacy">Stored locally: path progress and your preferred instruction mode. Never tokens, repository details, emails, or payment data.</p>
+      </aside>
+
+      <article class="path-manual" id="path-manual" aria-live="polite">
+        <header class="manual-head">
+          <div><p class="path-kicker" data-path-source></p><h2 data-path-title>Loading guide…</h2><p class="manual-summary" data-path-summary></p></div>
+          <span class="manual-status" data-path-status></span>
+        </header>
+
+        <dl class="path-facts"><div><dt>Difficulty</dt><dd data-path-difficulty></dd></div><div><dt>Estimated effort</dt><dd data-path-effort></dd></div><div><dt>Credit depends on</dt><dd data-path-dependency></dd></div></dl>
+        <div class="integrity-notice"><strong>Outcome not guaranteed</strong><p data-path-notice></p></div>
+        <div class="source-strip"><span>Requirement audit</span><ul data-path-references></ul></div>
+
+        <section class="manual-section" aria-labelledby="prereq-title"><div class="section-index">01</div><div><h3 id="prereq-title">Before you begin</h3><ul class="check-list" data-path-prerequisites></ul></div></section>
+
+        <section class="manual-section" aria-labelledby="practice-title"><div class="section-index">02</div><div><h3 id="practice-title">Practice before production</h3><p>Use the local simulation first. It cannot run Git commands or write to GitHub.</p><a class="btn btn-primary" data-practice-link href="index.html#practice">Practice in Branchfall</a><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-copy">Review checklist → Apply to a real project</span></div></section>
+
+        <section class="manual-section" aria-labelledby="workflow-title"><div class="section-index">03</div><div><h3 id="workflow-title">Real-project workflow</h3><ol class="workflow-list" data-path-workflow></ol></div></section>
+
+        <section class="manual-section visual-section" aria-labelledby="visual-title"><div class="section-index">04</div><div><h3 id="visual-title">GitHub interface walkthroughs</h3><p class="visual-caption">Original interface illustrations, not live GitHub screens. Choose an action to study one decision at a time.</p><div class="visual-tabs" data-visual-tabs role="tablist" aria-label="Interface illustrations"></div><div data-path-visual></div></div></section>
+
+        <section class="manual-section" aria-labelledby="commands-title"><div class="section-index">05</div><div><h3 id="commands-title">Command workbench</h3><p>Read what each command changes. Complete the placeholders, then copy one command at a time. The browser never executes it.</p><div class="mode-tabs" data-mode-tabs role="tablist" aria-label="Instruction mode"></div><div class="command-workbench" data-command-workbench></div></div></section>
+
+        <section class="manual-section evidence-section" aria-labelledby="verify-title"><div class="section-index">06</div><div><h3 id="verify-title">Verify the evidence</h3><ul class="check-list" data-path-verify></ul><div class="evidence-entry"><label for="evidence-url">Optional public GitHub evidence URL</label><div><input id="evidence-url" type="url" inputmode="url" autocomplete="off" placeholder="https://github.com/owner/repository/pull/123" aria-describedby="evidence-help"><button class="btn btn-ghost" type="button" data-add-evidence>Add link</button></div><p id="evidence-help">Accepted: public GitHub pull request, issue, commit, Discussion, or profile achievement URLs. The URL stays in this tab and is never fetched or saved.</p><ul data-evidence-list></ul></div></div></section>
+
+        <section class="manual-section" aria-labelledby="trouble-title"><div class="section-index">07</div><div><h3 id="trouble-title">If credit does not appear</h3><ul class="trouble-list" data-path-troubleshoot></ul></div></section>
+
+        <section class="progress-panel" aria-labelledby="progress-title"><div><p class="eyebrow">Private local progress</p><h3 id="progress-title">Mark where you actually are.</h3><p>These five labels are the only guide data saved in this browser.</p></div><div class="progress-options" data-progress-options role="group" aria-label="Path progress"></div><p class="progress-announcement" data-progress-message role="status"></p></section>
+        <a class="manual-back" href="index.html#achievements">← Back to the Achievement Command Center</a>
+      </article>
+    </div>
+  </main>
+  <script type="module" src="guided-paths.js"></script>
+</body>
+</html>

@@ -50,6 +50,11 @@ jobs:
             game/practice-missions.js
             game/practice.js
             scripts/test-command-center.mjs
+            data/guided-paths.js
+            guided-paths.js
+            guided-paths.css
+            paths.html
+            scripts/test-guided-paths.mjs
             package.json
             .github/pull_request_template.md
             .github/ISSUE_TEMPLATE/add-contributor.yml
@@ -83,6 +88,9 @@ jobs:
       - name: Test the Achievement Command Center
         run: node scripts/test-command-center.mjs
 
+      - name: Test Guided Achievement Paths
+        run: node scripts/test-guided-paths.mjs
+
       - name: Check JavaScript files for syntax errors
         run: |
           node --check app.js
@@ -94,6 +102,9 @@ jobs:
           node --check game/practice-missions.js
           node --check game/practice.js
           node --check scripts/test-command-center.mjs
+          node --check data/guided-paths.js
+          node --check guided-paths.js
+          node --check scripts/test-guided-paths.mjs
           node --check scripts/test-mission.mjs
           echo "JavaScript parses cleanly."
 
